@@ -356,7 +356,7 @@ export default function App() {
       style={{
         fontFamily: "'Georgia',serif",
         background: '#0f172a',
-        minHeight: '100vh',
+        minHeight: '100svh',
         padding: 'clamp(0.75rem, 4vw, 1.75rem) clamp(0.4rem, 3vw, 1rem)',
         color: '#e2e8f0',
         display: 'flex',
@@ -422,7 +422,7 @@ export default function App() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+          gridTemplateColumns: 'repeat(2, 1fr)',
           gap: '0.65rem',
           width: '100%',
           maxWidth: '600px',
@@ -443,13 +443,15 @@ export default function App() {
           pLabel(pVal),
           Math.min(100, (fStat / 50) * 100)
         )}
-        {card(
-          'Heteroskedasticity',
-          Math.abs(hScore).toFixed(2),
-          hc,
-          heteroLabel(hScore),
-          undefined
-        )}
+        <div style={{ gridColumn: '1 / -1' }}>
+          {card(
+            'Heteroskedasticity',
+            Math.abs(hScore).toFixed(2),
+            hc,
+            heteroLabel(hScore),
+            undefined
+          )}
+        </div>
       </div>
 
       {/* Insight banner */}
