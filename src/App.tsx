@@ -426,7 +426,6 @@ export default function App() {
           gap: '0.65rem',
           width: '100%',
           maxWidth: '600px',
-          width: '100%',
           marginBottom: '1.1rem',
         }}
       >
