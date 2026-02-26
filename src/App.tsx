@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 // ── Scatter chart dims ──────────────────────────────────────────────
 const W = 540,
   H = 300;
-const PAD = { top: 18, right: 28, bottom: 46, left: 48 };
+const PAD = { top: 18, right: 42, bottom: 46, left: 48 };
 const PW = W - PAD.left - PAD.right;
 const PH = H - PAD.top - PAD.bottom;
 const X_MIN = 0,
@@ -14,7 +14,7 @@ const X_MIN = 0,
 // ── Residual plot dims ──────────────────────────────────────────────
 const RW = 540,
   RH = 200;
-const RPAD = { top: 18, right: 28, bottom: 42, left: 48 };
+const RPAD = { top: 18, right: 42, bottom: 42, left: 48 };
 const RPW = RW - RPAD.left - RPAD.right;
 const RPH = RH - RPAD.top - RPAD.bottom;
 
@@ -357,7 +357,7 @@ export default function App() {
         fontFamily: "'Georgia',serif",
         background: '#0f172a',
         minHeight: '100vh',
-        padding: '1.75rem 1rem',
+        padding: 'clamp(0.75rem, 4vw, 1.75rem) clamp(0.4rem, 3vw, 1rem)',
         color: '#e2e8f0',
         display: 'flex',
         flexDirection: 'column',
@@ -366,7 +366,7 @@ export default function App() {
     >
       <h1
         style={{
-          fontSize: '1.9rem',
+          fontSize: 'clamp(1.3rem, 5vw, 1.9rem)',
           fontWeight: '700',
           letterSpacing: '-0.03em',
           marginBottom: '0.15rem',
@@ -401,13 +401,13 @@ export default function App() {
             key={i}
             onClick={() => regenerate(i)}
             style={{
-              padding: '0.4rem 1rem',
+              padding: '0.3rem 0.65rem',
               borderRadius: '999px',
               border: `2px solid ${selected === i ? p.color : '#334155'}`,
               background: selected === i ? p.color + '22' : 'transparent',
               color: selected === i ? p.color : '#94a3b8',
               fontFamily: 'inherit',
-              fontSize: '0.84rem',
+              fontSize: '0.75rem',
               cursor: 'pointer',
               fontWeight: selected === i ? '700' : '400',
               transition: 'all 0.2s',
@@ -422,10 +422,11 @@ export default function App() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr 1fr',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
           gap: '0.65rem',
           width: '100%',
           maxWidth: '600px',
+          width: '100%',
           marginBottom: '1.1rem',
         }}
       >
@@ -635,7 +636,7 @@ export default function App() {
               key={d.id}
               cx={tx(d.x)}
               cy={ty(d.y)}
-              r={7}
+              r={10}
               fill="#60a5fa"
               stroke="#0f172a"
               strokeWidth={1.5}
