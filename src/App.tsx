@@ -447,7 +447,8 @@ export default function App() {
           'Heteroskedasticity',
           Math.abs(hScore).toFixed(2),
           hc,
-          heteroLabel(hScore)
+          heteroLabel(hScore),
+          undefined
         )}
       </div>
 
